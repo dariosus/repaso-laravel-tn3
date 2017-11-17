@@ -1,0 +1,34 @@
+header ul {
+	list-style: none;
+	overflow: hidden;
+	margin-top:25px;
+}
+
+header ul li {
+	float: left;
+	padding-right: 25px;
+}
+
+header form.buscar input {
+	float:left;
+	display: block;
+}
+
+header form.buscar {
+	position: relative;
+}
+
+header input.buscar {
+	width: 68%;
+	margin-right: 2%
+}
+
+header form.buscar {
+	overflow: hidden;
+}
+
+ul.pagination {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
