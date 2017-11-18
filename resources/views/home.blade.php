@@ -15,6 +15,14 @@
                     @endif
 
                     Ya estas logueado :D
+
+                    @if (auth()->user()->type == 1)
+                        <div>
+                            <a href="/registerAdmin">
+                                Registrar otro admin
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

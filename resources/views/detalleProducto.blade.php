@@ -25,4 +25,26 @@
 			</a>
 		</li>
 	</ul>
+	@if ($inWishlist)
+		<form action="/quitarWishlist" method="POST">
+			{{csrf_field()}}
+			<input type="hidden" name="id" value="{{$product->id}}">
+			<input type="submit" name="" value="Quitar de Wishlist" class="btn btn-warning">
+		</form>
+	@else
+		<form action="/agregarWishlist" method="POST">
+			{{csrf_field()}}
+			<input type="hidden" name="id" value="{{$product->id}}">
+			<input type="submit" name="" value="Agregar a Wishlist" class="btn btn-primary">
+		</form>
+	@endif
+	<img src="/{{$product->image}}">
+	@if (auth()->check() && auth()->user()->type == 1)
+		<form action="/borrarProducto" method="POST">
+			{{csrf_field()}}	
+			<input type="hidden" name="id" value="{{$product->id}}">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="submit" name="" value="Borrar" class="btn btn-danger">
+		</form>
+	@endif
 @endsection

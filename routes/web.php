@@ -11,6 +11,13 @@
 |
 */
 
+Route::delete("/borrarProducto", "ProductsController@delete")->middleware("admin");
+
+Route::get("/wishlist", "ProductsController@wishlist");
+
+Route::post("/agregarWishlist", "ProductsController@addWishlist");
+Route::post("/quitarWishlist", "ProductsController@removeWishlist");
+
 Route::get("/categorias", "CategoriesController@index");
 
 Route::get("/buscarProductos", "ProductsController@search");
@@ -18,6 +25,12 @@ Route::get("/buscarProductos", "ProductsController@search");
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/agregarProducto", "ProductsController@add")->middleware("auth");
+Route::post("/agregarProducto", "ProductsController@store")->middleware("auth");
+
+Route::get("/registerAdmin", "MyRegisterController@addAdmin")->middleware("admin");
+Route::post("/registerAdmin", "MyRegisterController@saveAdmin")->middleware("admin");
 
 
 Route::get("/marcas", "BrandsController@index");

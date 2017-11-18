@@ -26,9 +26,19 @@
 							Productos
 						</a>
 					</li>
+					<li>
+						<a href="/wishlist">
+							Mi Wishlist
+						</a>
+					</li>
 					@if (auth()->check())
 						<li>
 							Bienvenido {{auth()->user()->name}}
+						</li>
+						<li>
+							<a href="/agregarProducto">
+								Agregar Producto
+							</a>
 						</li>
 						<li>
 							<form method="post" action="/logout">
@@ -63,6 +73,11 @@
 				<marquee scrollamount="15">WELCOME TO DH SHOP</marquee>
 			</h1>
 		</div>
+		@if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 		@yield("principal")
 	</div>
 </body>
